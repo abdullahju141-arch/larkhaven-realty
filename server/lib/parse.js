@@ -22,7 +22,7 @@ const FEATURE_WORDS = {
 	balcony: ['balcony', 'terrace', 'roof terrace'],
 	fireplace: ['fireplace', 'wood burner', 'log burner', 'stove'],
 	'home-office': ['home office', 'office', 'study', 'work from home', 'wfh'],
-	waterfront: ['waterfront', 'sea view', 'sea views', 'beach', 'river', 'harbour', 'harbor', 'lake'],
+	waterfront: ['waterfront', 'sea view', 'sea views', 'beach', 'river', 'harbour', 'harbor', 'lake', 'near the water', 'on the water', 'by the water', 'waterside', 'seaside', 'coast', 'coastal'],
 	'new-build': ['new build', 'new-build', 'brand new', 'newly built'],
 	'pet-friendly': ['pet', 'pets', 'dog', 'dogs', 'cat', 'cats'],
 	solar: ['solar', 'eco', 'energy efficient', 'heat pump'],
@@ -41,7 +41,8 @@ function amount(numText, suffix) {
 	return Math.round(n);
 }
 
-const MONEY = '\\$?\\s?(\\d[\\d,]*(?:\\.\\d+)?)\\s?(k|m|mil|million|thousand)?\\b';
+// A number followed by "bed", "bath", "sq ft" etc. is not a price ("at least 4 bedrooms").
+const MONEY = '\\$?\\s?(\\d[\\d,]*(?:\\.\\d+)?)\\s?(k|m|mil|million|thousand)?\\b(?!\\s*\\+?\\s*-?\\s*(?:bed|bath|br\\b|room|sq|square|acre|car|parking|garage|people|kids|children|year))';
 
 function has(text, word) {
 	return new RegExp(`(^|[^a-z])${word.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}([^a-z]|$)`, 'i').test(text);
