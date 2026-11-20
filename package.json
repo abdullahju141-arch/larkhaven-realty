@@ -1,0 +1,28 @@
+{
+  "name": "larkhaven-realty",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Larkhaven Realty: a MERN real estate demo with an AI property assistant (Gemini) that searches real listings.",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "seed": "node server/seed.js",
+    "seed:reset": "node server/seed.js --reset",
+    "build:client": "node client/build.mjs",
+    "test": "node --test server/test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20.12"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.9.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
